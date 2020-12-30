@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  margin: 30px 0 0 0;
+}
+
+.button-container { 
+  display:flex; 
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.button-col {
+  
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.btn-width {
+  margin-top: 15px;
+  flex-basis: 20%;
+}
