@@ -1,3 +1,9 @@
 import Questionaire from './questionaire';
+import DropdownForm from './DropdownForm';
+import CheckboxForm from './CheckboxForm';
 
-export {Questionaire};
+export {
+    Questionaire,
+    DropdownForm,
+    CheckboxForm
+};
