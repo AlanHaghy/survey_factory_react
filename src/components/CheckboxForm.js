@@ -1,13 +1,11 @@
 import React from 'react';
 
-function CheckboxForm({data , handleAnswer}) {
+function CheckboxForm({data , submitHandler}) {
 
-    const clickAnswer = (e) => {
-        e.preventDefault();
-        handleAnswer = e.target.value;
-    }
-
-    const 
+    // const clickAnswer = (e) => {
+    //     e.preventDefault();
+    //     handleAnswer = e.target.value;
+    // }
 
     return (
         
@@ -26,7 +24,7 @@ function CheckboxForm({data , handleAnswer}) {
                 id={data.buttons.id} 
                 type="submit"
                 className="btn btn-primary btn-lr btn-width"
-                onClick={() => clickAnswer({clickValue : data.buttons.value, targetNodeId : data.buttons.target_node_id})}
+                onClick={() => submitHandler({clickValue : data.buttons.value, targetNodeId : data.buttons.target_node_id})}
                 >
                 {data.buttons.button_text}
             </button>

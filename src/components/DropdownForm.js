@@ -2,14 +2,14 @@ import React from 'react';
 
 function DropdownForm({data , handleAnswer}) {
 
-    const selectAnswer = (e) => {
-        e.preventDefault();
-        handleAnswer = e.target.value;
-    }
+    // const selectAnswer = (e) => {
+    //     e.preventDefault();
+    //     handleAnswer = e.target.value;
+    // }
 
     return (
         
-        <form onSubmit={submitHandler}>
+        <form >
         <div className="button-container button-col">
             {data.formfields.map( (field,keys) => (
              <div>
@@ -24,7 +24,7 @@ function DropdownForm({data , handleAnswer}) {
                 id={data.buttons.id} 
                 type="submit"
                 className="btn btn-primary btn-lr btn-width"
-                onClick={() => selectAnswer({clickValue : data.buttons.value, targetNodeId : data.buttons.target_node_id})}
+                onClick={() => handleAnswer({clickValue : data.buttons.value, targetNodeId : data.buttons.target_node_id})}
                 >
                 {data.buttons.button_text}
             </button>

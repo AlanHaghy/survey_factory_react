@@ -2,10 +2,6 @@ import React from 'react';
 
 function Questionaire({data , handleAnswer}) {
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-    }
-
     return (
            
     <div className={`button-container ${!data.buttons_across ? 'button-col' : ''}`}>
