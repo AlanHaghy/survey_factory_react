@@ -1,29 +1,29 @@
 import {useState, useEffect} from 'react';
 import config from './config.json';
 import './App.css';
-//import localFeed from './survey.json';
+import localFeed from './survey.json';
 import MessagePanel from './components/messagePanel';
 import {Questionaire, CheckboxForm, DropdownForm } from './components';
 
 function App() {
 
-     const [localSurvey, setLocalSurvey] = useState({});
+     const [localSurvey, setLocalSurvey] = useState(localFeed);
      const [currentTargetNode , setTargetNode] = useState(1);
 
      let resultAnswers,resultAnswer = {};
 
-  useEffect (() => {
+  // useEffect (() => {
     
-    fetch(config.apiEndpoint)
-    .then(response => response.json())
-    .then(json => setLocalSurvey(json))
-  }, []);
+  //   fetch(config.apiEndpoint)
+  //   .then(response => response.json())
+  //   .then(json => setLocalSurvey(json))
+  // }, []);
 
   //console.log('localFeed: ', localFeed.nodes[1]);
   //setLocalSurvey(localFeed);
 
   const viewState = localSurvey.nodes[currentTargetNode];
-    console.log(viewState);
+   
  document.title = localSurvey.name;
  var link = document.createElement('link');
  link.rel = 'stylesheet';
@@ -42,8 +42,12 @@ const handleAnswer = (answer) => {
     console.log('final Results: ',resultAnswers);
     answer.targetNodeId = 1;
   } else {
+
+
+
     resultAnswer[viewState.variable] = answer.clickValue;
     resultAnswers = {...resultAnswers, resultAnswer};
+    console.log(resultAnswers);
   }
    setTargetNode(answer.targetNodeId);
       
@@ -65,7 +69,9 @@ const handleAnswer = (answer) => {
         (viewState.type === "Content"  && viewState.formfields[0].type === "select") ?
          <DropdownForm handleAnswer={handleAnswer} data={viewState}/>
          :
-         <MessagePanel handleAnswer={handleAnswer} data={viewState}/>
+         (viewState.type === "Content"  && !viewState.formfields && !viewState.bottons) ?
+         <MessagePanel handleAnswer={handleAnswer} data={viewState}/> :
+         <div>logic node</div>
       } 
        
     </div>

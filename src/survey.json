@@ -1,0 +1,934 @@
+{
+    "name": "COVID-19 self checker",
+    "description": "COVID-19 Self Assessment",
+    "template": "panels",
+    "css_include": "https:\/\/zingtree.com\/css\/custom-css.php?template=default&body_text=314D68&primary=314D68&secondary=edf1d7&complement=9aaf24",
+    "root_node_id": "1",
+    "nodes": {
+        "1": {
+            "project_node_id": "1",
+            "type": "Content",
+            "display": true,
+            "page_title": "Welcome",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>The purpose of the Coronavirus Self-Checker is to help you make decisions about seeking appropriate medical care. This system is not intended for the diagnosis or treatment of disease or other conditions, including COVID-19. This system is intended only for people who are currently located in the United States.<\/p><p><strong style=\u0027box-sizing: border-box; font-weight: 700; color: rgb(0, 0, 0); font-family: \"Open Sans\"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\u0027>This information is provided to you as a template and representation of content from the CDC. It is not meant to be all-inclusive with regard to medical guidance. Please see the <a href=\"https:\/\/www.cdc.gov\/coronavirus\/2019-ncov\/index.html\" rel=\"noopener noreferrer\" style=\"box-sizing: border-box; color: rgb(149, 175, 0); font-weight: 600; text-decoration: none; user-select: auto;\" target=\"_blank\" title=\"\">Centers For Disease Control website<\/a> for the most up to date guidelines and information. Contact your doctor if you are sick.<\/strong><\/p>",
+            "variable": "agree_tos",
+            "buttons": [
+                {
+                    "button_text": "I agree",
+                    "target_node_id": "3",
+                    "hover_text": "",
+                    "value": "agree",
+                    "id": "11517513"
+                },
+                {
+                    "button_text": "I don\u0027t agree",
+                    "target_node_id": "2",
+                    "hover_text": "",
+                    "value": "disagree",
+                    "id": "11517514"
+                }
+            ],
+            "formfields": []
+        },
+        "2": {
+            "project_node_id": "2",
+            "type": "Content",
+            "display": true,
+            "page_title": "Please Agree to Proceed",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>Your consent is required to use the Coronavirus Self-Checker.<\/p>",
+            "variable": "agree_tos",
+            "buttons": [
+                {
+                    "button_text": "I agree",
+                    "target_node_id": "3",
+                    "hover_text": "",
+                    "value": "agree",
+                    "id": "11557512"
+                }
+            ],
+            "formfields": []
+        },
+        "3": {
+            "project_node_id": "3",
+            "type": "Content",
+            "display": true,
+            "page_title": "Not Feeling Well",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>Are you (or someone you care for) ill?<\/p>",
+            "buttons": [
+                {
+                    "button_text": "Yes",
+                    "target_node_id": "4",
+                    "hover_text": "",
+                    "value": "0",
+                    "id": "11557513"
+                },
+                {
+                    "button_text": "No",
+                    "target_node_id": "20",
+                    "hover_text": "",
+                    "value": "0",
+                    "id": "11557514"
+                }
+            ],
+            "formfields": []
+        },
+        "4": {
+            "project_node_id": "4",
+            "type": "Content",
+            "display": true,
+            "page_title": "Who Is This For",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>Are you answering for yourself or someone else?<\/p>",
+            "variable": "user_profile",
+            "buttons": [
+                {
+                    "button_text": "Myself",
+                    "target_node_id": "5",
+                    "hover_text": "",
+                    "value": "you",
+                    "id": "11557522"
+                },
+                {
+                    "button_text": "Someone Else",
+                    "target_node_id": "5",
+                    "hover_text": "",
+                    "value": "they",
+                    "id": "11557523"
+                }
+            ],
+            "formfields": []
+        },
+        "5": {
+            "project_node_id": "5",
+            "type": "Content",
+            "display": true,
+            "page_title": "Where are #user_profile# located?",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "",
+            "variable": "location",
+            "buttons": [
+                {
+                    "button_text": "United States",
+                    "target_node_id": "6",
+                    "hover_text": "",
+                    "value": "domestic",
+                    "id": "11517457"
+                },
+                {
+                    "button_text": "Outside the United States",
+                    "target_node_id": "21",
+                    "hover_text": "",
+                    "value": "foreign",
+                    "id": "11517458"
+                }
+            ],
+            "formfields": []
+        },
+        "6": {
+            "project_node_id": "6",
+            "type": "Content",
+            "display": true,
+            "page_title": "Which state are #user_profile# from?",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "Choose a state",
+            "variable": "state",
+            "buttons": [
+                {
+                    "button_text": "Next",
+                    "target_node_id": "7",
+                    "hover_text": "",
+                    "value": "",
+                    "id": "11552355"
+                }
+            ],
+            "formfields": [
+                {
+                    "type": "select",
+                    "name": "state",
+                    "label": "State:",
+                    "required": "0",
+                    "options": "Alabama\r\nAlaska\r\nArizona\r\nArkansas\r\nCalifornia\r\nColorado\r\nConnecticut\r\nDelaware\r\nFlorida\r\nGeorgia\r\nHawaii\r\nIdaho\r\nIllinois\r\nIndiana\r\nIowa\r\nKansas\r\nKentucky\r\nLouisiana\r\nMaine\r\nMaryland\r\nMassachusetts\r\nMichigan\r\nMinnesota\r\nMississippi\r\nMissouri\r\nMontana\r\nNebraska\r\nNevada\r\nNew Hampshire\r\nNew Jersey\r\nNew Mexico\r\nNew York\r\nNorth Carolina\r\nNorth Dakota\r\nOhio\r\nOklahoma\r\nOregon\r\nPennsylvania\r\nRhode Island\r\nSouth Carolina\r\nSouth Dakota\r\nTennessee\r\nTexas\r\nUtah\r\nVermont\r\nVirginia\r\nWashington\r\nWest Virginia\r\nWisconsin\r\nWyoming",
+                    "score_var": "",
+                    "scores": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                }
+            ]
+        },
+        "7": {
+            "project_node_id": "7",
+            "type": "Content",
+            "display": true,
+            "page_title": "Age",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "1",
+            "content": "<p>Please indicate the age below.<\/p>",
+            "variable": "age",
+            "buttons": [
+                {
+                    "button_text": "Less than 2 years old",
+                    "target_node_id": "19",
+                    "hover_text": "",
+                    "value": "under2",
+                    "id": "11557524"
+                },
+                {
+                    "button_text": "2-4 years",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557525"
+                },
+                {
+                    "button_text": "5-9",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557526"
+                },
+                {
+                    "button_text": "10-18",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557527"
+                },
+                {
+                    "button_text": "19-29",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557528"
+                },
+                {
+                    "button_text": "30-39",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557529"
+                },
+                {
+                    "button_text": "40-49",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557530"
+                },
+                {
+                    "button_text": "50-59",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557531"
+                },
+                {
+                    "button_text": "60-64",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557532"
+                },
+                {
+                    "button_text": "65-69",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557533"
+                },
+                {
+                    "button_text": "70-79",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557534"
+                },
+                {
+                    "button_text": "80+",
+                    "target_node_id": "8",
+                    "hover_text": "",
+                    "value": "over2",
+                    "id": "11557535"
+                }
+            ],
+            "formfields": []
+        },
+        "8": {
+            "project_node_id": "8",
+            "type": "Content",
+            "display": true,
+            "page_title": "Gender",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>Please indicate the gender below.<\/p>",
+            "variable": "gender",
+            "buttons": [
+                {
+                    "button_text": "Male",
+                    "target_node_id": "9",
+                    "hover_text": "",
+                    "value": "male_gender",
+                    "id": "11557538"
+                },
+                {
+                    "button_text": "Female",
+                    "target_node_id": "9",
+                    "hover_text": "",
+                    "value": "female_gender",
+                    "id": "11557539"
+                },
+                {
+                    "button_text": "Other",
+                    "target_node_id": "9",
+                    "hover_text": "",
+                    "value": "other_gender",
+                    "id": "11557540"
+                }
+            ],
+            "formfields": []
+        },
+        "9": {
+            "project_node_id": "9",
+            "type": "Content",
+            "display": true,
+            "page_title": "Life-Threatening Symptoms",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "1",
+            "content": "<p>Do #user_profile# have any of the following life-threatening symptoms?<\/p>",
+            "variable": "symptoms",
+            "buttons": [
+                {
+                    "button_text": "Not experiencing any life-threatening symptoms",
+                    "target_node_id": "10",
+                    "hover_text": "",
+                    "value": "no_severe_symptoms",
+                    "id": "11557543"
+                },
+                {
+                    "button_text": "Gasping for air or cannot talk without catching your breath (extreme difficulty breathing)",
+                    "target_node_id": "22",
+                    "hover_text": "",
+                    "value": "severe_symptoms",
+                    "id": "11557544"
+                },
+                {
+                    "button_text": "Blue-colored lips or face ",
+                    "target_node_id": "22",
+                    "hover_text": "",
+                    "value": "severe_symptoms",
+                    "id": "11557545"
+                },
+                {
+                    "button_text": "Severe and constant pain or pressure in the chest",
+                    "target_node_id": "22",
+                    "hover_text": "",
+                    "value": "severe_symptoms",
+                    "id": "11557546"
+                },
+                {
+                    "button_text": "Severe and constant dizziness or lighheadedness",
+                    "target_node_id": "22",
+                    "hover_text": "",
+                    "value": "severe_symptoms",
+                    "id": "11557547"
+                },
+                {
+                    "button_text": "Acting confused (new or worsening)",
+                    "target_node_id": "22",
+                    "hover_text": "",
+                    "value": "severe_symptoms",
+                    "id": "11557548"
+                },
+                {
+                    "button_text": "Unconscious or very difficult to wake up",
+                    "target_node_id": "22",
+                    "hover_text": "",
+                    "value": "severe_symptoms",
+                    "id": "11557549"
+                },
+                {
+                    "button_text": "Slurred speech (new or worsening)",
+                    "target_node_id": "22",
+                    "hover_text": "",
+                    "value": "severe_symptoms",
+                    "id": "11557550"
+                },
+                {
+                    "button_text": "New seizure or seizures that won\u0027t stop",
+                    "target_node_id": "22",
+                    "hover_text": "",
+                    "value": "severe_symptoms",
+                    "id": "11557551"
+                }
+            ],
+            "formfields": []
+        },
+        "10": {
+            "project_node_id": "10",
+            "type": "Content",
+            "display": true,
+            "page_title": "Other Symptoms",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "1",
+            "content": "<p>Do #user_profile# have any of the following?<\/p>",
+            "variable": "has_symptoms",
+            "buttons": [
+                {
+                    "button_text": "Moderate to severe difficulty breathing (unable to speak full sentences)",
+                    "target_node_id": "23",
+                    "hover_text": "",
+                    "value": "yes",
+                    "id": "11557553"
+                },
+                {
+                    "button_text": "Coughing up blood (more than 1 teaspoon)",
+                    "target_node_id": "23",
+                    "hover_text": "",
+                    "value": "yes",
+                    "id": "11557554"
+                },
+                {
+                    "button_text": "Signs of low blood pressure (feeling cold, pale, clammy skin, light-headed, too weak to stand)",
+                    "target_node_id": "23",
+                    "hover_text": "",
+                    "value": "yes",
+                    "id": "11557555"
+                },
+                {
+                    "button_text": "None of the above",
+                    "target_node_id": "11",
+                    "hover_text": "",
+                    "value": "no",
+                    "id": "11557556"
+                }
+            ],
+            "formfields": []
+        },
+        "11": {
+            "project_node_id": "11",
+            "type": "Content",
+            "display": true,
+            "page_title": "Exposure",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>In the two weeks before #user_profile# felt sick, did #user_profile#:<\/p><ul><li>Have contact with someone diagnosed with COVID-19<\/li><li>Live in or visit a place where COVID-19 is spreading<\/li><\/ul>",
+            "variable": "covid_contact",
+            "buttons": [
+                {
+                    "button_text": "Yes",
+                    "target_node_id": "12",
+                    "hover_text": "",
+                    "value": "previous_covid_contact_yes",
+                    "id": "11557557"
+                },
+                {
+                    "button_text": "No",
+                    "target_node_id": "12",
+                    "hover_text": "",
+                    "value": "previous_covid_contact_no",
+                    "id": "11557558"
+                }
+            ],
+            "formfields": []
+        },
+        "12": {
+            "project_node_id": "12",
+            "type": "Content",
+            "display": true,
+            "page_title": "More Symptoms",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>Do #user_profile# have any of the following? (check any)<\/p>",
+            "buttons": [
+                {
+                    "button_text": "Next",
+                    "target_node_id": "13",
+                    "hover_text": "",
+                    "value": "0",
+                    "id": "11557559"
+                }
+            ],
+            "formfields": [
+                {
+                    "type": "checkbox",
+                    "name": "breath_short",
+                    "label": "Shortness of breath (not severe)",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "other",
+                    "label": "Other",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                }
+            ]
+        },
+        "13": {
+            "project_node_id": "13",
+            "type": "Logic",
+            "display": false,
+            "conditions": [
+                {
+                    "variable": "other",
+                    "value": "1",
+                    "operator": "eq",
+                    "target_node_id": "14"
+                },
+                {
+                    "variable": "breath_short",
+                    "value": "1",
+                    "operator": "eq",
+                    "target_node_id": "24"
+                },
+                {
+                    "target_node_id": "1",
+                    "operator": "default"
+                }
+            ],
+            "formfields": []
+        },
+        "14": {
+            "project_node_id": "14",
+            "type": "Content",
+            "display": true,
+            "page_title": "Mild Symptoms",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>Do #user_profile# have any of the following? (check any)<\/p>",
+            "buttons": [
+                {
+                    "button_text": "Next",
+                    "target_node_id": "16",
+                    "hover_text": "",
+                    "value": "0",
+                    "id": "11557561"
+                }
+            ],
+            "formfields": [
+                {
+                    "type": "checkbox",
+                    "name": "Runnyorstuffynose",
+                    "label": "Runny or stuffy nose",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "Sorethroat",
+                    "label": "Sore throat",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "aches",
+                    "label": "Muscle aches, body aches, or headache",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "tired",
+                    "label": "Tiredness or fatigue",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "nausea",
+                    "label": "Nausea, vomiting, or diarrhea",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "other_other",
+                    "label": "Other",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                }
+            ]
+        },
+        "15": {
+            "project_node_id": "15",
+            "type": "Content",
+            "display": true,
+            "page_title": "Sorry #user_profile#\u0027re feeling ill. Stay at home and monitor the symptoms. Call a provider if #user_profile# get worse. ",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p><span style=\"background-color: initial;\">Continue to monitor all symptoms. If they get worse, call a healthcare provider, clinician advice line, or telemedicine provider.<\/span><\/p><p>Here are some steps that may help feel better:<\/p><ul><li>Stay at home and rest.<\/li><li>Drink plenty of water and other clear liquids to prevent fluid loss (dehydration).<\/li><li>Cover coughs and sneezes.<\/li><li>Clean hands often.<\/li><\/ul>",
+            "buttons": [],
+            "formfields": []
+        },
+        "16": {
+            "project_node_id": "16",
+            "type": "Logic",
+            "display": false,
+            "conditions": [
+                {
+                    "variable": "other_other",
+                    "target_node_id": "15",
+                    "value": "1",
+                    "operator": "eq"
+                },
+                {
+                    "target_node_id": "1",
+                    "operator": "default"
+                }
+            ],
+            "formfields": []
+        },
+        "19": {
+            "project_node_id": "19",
+            "type": "Content",
+            "display": true,
+            "page_title": "Sorry, this Coronavirus Self-Checker is for people who are at least 2 years old",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p><span style=\"background-color: initial;\">Call your child&rsquo;s healthcare provider today. Tell them if your sick child has had contact with someone with COVID-19 or if they have recently been to an area where COVID-19 is spreading.<\/span><\/p>",
+            "buttons": [],
+            "formfields": []
+        },
+        "20": {
+            "project_node_id": "20",
+            "type": "Content",
+            "display": true,
+            "page_title": "Sounds like #user_profile# are feeling ok",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p><span style=\"background-color: initial;\">This Coronavirus Self-Checker system is for those who may be sick. Learn more about COVID-19 and what <span style=\u0027color: rgb(0, 0, 0); font-family: \"Open Sans\"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\u0027>#user_profile#<\/span> can do to help on the&nbsp;<\/span><a href=\"https:\/\/www.cdc.gov\/coronavirus\/2019-ncov\/index.html\" style=\"background-color: initial;\" target=\"_blank\">CDC website<\/a><span style=\"background-color: initial;\">.<\/span><\/p>",
+            "buttons": [],
+            "formfields": []
+        },
+        "21": {
+            "project_node_id": "21",
+            "type": "Content",
+            "display": true,
+            "page_title": "Coronavirus Self-Checker is intended for people currently located in the U.S.",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p><span style=\"background-color: initial;\">Please check with your ministry of health for more information about COVID-19 in your location.<\/span><\/p>",
+            "buttons": [],
+            "formfields": []
+        },
+        "22": {
+            "project_node_id": "22",
+            "type": "Content",
+            "display": true,
+            "page_title": "Call 911 - #user_profile# may be having a medical emergency.",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p><span style=\"background-color: initial;\">Call 911 now. Immediate medical attention is needed.<\/span><\/p><p>Tell the 911 operator if <span style=\u0027color: rgb(0, 0, 0); font-family: \"Open Sans\"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\u0027>#user_profile#<\/span> have been in contact with someone with COVID-19 or if <span style=\u0027color: rgb(0, 0, 0); font-family: \"Open Sans\"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\u0027>#user_profile#<\/span> have recently been to an area where COVID-19 is spreading.<\/p>",
+            "buttons": [],
+            "formfields": []
+        },
+        "23": {
+            "project_node_id": "23",
+            "type": "Content",
+            "display": true,
+            "page_title": "Urgent medical attention may be needed. Please go to the Emergency Department",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p><span style=\"background-color: initial;\">Go to the nearest emergency department. Urgent medical attention may be needed.<\/span><\/p><p>Tell the emergency staff if <span style=\u0027color: rgb(0, 0, 0); font-family: \"Open Sans\"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\u0027>#user_profile#<\/span> have had contact with someone with COVID-19 or if <span style=\u0027color: rgb(0, 0, 0); font-family: \"Open Sans\"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\u0027>#user_profile#<\/span> have recently been to an area where COVID-19 is spreading.<\/p>",
+            "buttons": [],
+            "formfields": []
+        },
+        "24": {
+            "project_node_id": "24",
+            "type": "Content",
+            "display": true,
+            "page_title": "Where do #user_profile# live?",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>Do #user_profile# live in a long-term care facility or nursing home?<\/p>",
+            "buttons": [
+                {
+                    "button_text": "Yes",
+                    "target_node_id": "29",
+                    "hover_text": "",
+                    "value": "0",
+                    "id": "11557563"
+                },
+                {
+                    "button_text": "No",
+                    "target_node_id": "25",
+                    "hover_text": "",
+                    "value": "0",
+                    "id": "11557564"
+                }
+            ],
+            "formfields": []
+        },
+        "25": {
+            "project_node_id": "25",
+            "type": "Content",
+            "display": true,
+            "page_title": "Conditions",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>Do #user_profile# have any of the following conditions (check any)<\/p>",
+            "buttons": [
+                {
+                    "button_text": "Next",
+                    "target_node_id": "26",
+                    "hover_text": "",
+                    "value": "0",
+                    "id": "11557567"
+                }
+            ],
+            "formfields": [
+                {
+                    "type": "checkbox",
+                    "name": "lung_disease",
+                    "label": "Chronic lung disease or moderate to severe asthma",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "heart_failure",
+                    "label": "Congestive heart failure",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "diabetes",
+                    "label": "Diabetes with complications",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "neurological_conditions",
+                    "label": "Neurologic conditions that weaken ability to cough",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "weak_immune_system",
+                    "label": "Weakened immune system",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "dialysis",
+                    "label": "Dialysis",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "cirrhosis",
+                    "label": "Cirrhosis of the liver",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "obesity",
+                    "label": "Extreme obesity (Body Mass Index [BMI] greater than or equal to 40)",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "noneoftheabove",
+                    "label": "None of the above",
+                    "required": "0",
+                    "options": "",
+                    "checkbox_score": "1",
+                    "label_type": "L",
+                    "hidden_value": "",
+                    "custom_regex": "",
+                    "inline": "0"
+                }
+            ]
+        },
+        "26": {
+            "project_node_id": "26",
+            "type": "Logic",
+            "display": false,
+            "conditions": [
+                {
+                    "variable": "noneoftheabove",
+                    "value": "1",
+                    "operator": "eq",
+                    "target_node_id": "28"
+                },
+                {
+                    "target_node_id": "27",
+                    "operator": "default"
+                }
+            ],
+            "formfields": []
+        },
+        "27": {
+            "project_node_id": "27",
+            "type": "Content",
+            "display": true,
+            "page_title": "Stay home and take good care of in home isolation. Call a medical provider within 24 hours",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p><span style=\"background-color: initial;\">Sorry #user_profile#&rsquo;re feeling ill - <span style=\u0027color: rgb(0, 0, 0); font-family: \"Open Sans\"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\u0027>#user_profile#<\/span> have one or more symptom(s) that may be related to COVID-19. Stay home and take good care in home isolation. Call a healthcare provider, clinician advice line, or telemedicine provider within 24 hours, and start home isolation immediately. This means stay home except to get medical care, and do not go to work, school, or public areas or use public transportation.<\/span><\/p><p>Read <a href=\"https:\/\/www.cdc.gov\/coronavirus\/2019-ncov\/if-you-are-sick\/caring-for-yourself-at-home.html\" target=\"_blank\">10 ways to manage your health<\/a> and take care of oneself at home.<\/p>",
+            "buttons": [],
+            "formfields": []
+        },
+        "28": {
+            "project_node_id": "28",
+            "type": "Content",
+            "display": true,
+            "page_title": "In the last 2 weeks...",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p>In the last two weeks have #user_profile# worked or volunteered in a hospital, emergency room, clinic, medical office, long-term care facility or nursing home, ambulance service, first responder services, or any health care setting or taken care of patients as a student or part of work?<\/p>",
+            "buttons": [
+                {
+                    "button_text": "Yes",
+                    "target_node_id": "27",
+                    "hover_text": "",
+                    "value": "0",
+                    "id": "11517510"
+                },
+                {
+                    "button_text": "No",
+                    "target_node_id": "27",
+                    "hover_text": "",
+                    "value": "0",
+                    "id": "11517511"
+                }
+            ],
+            "formfields": []
+        },
+        "29": {
+            "project_node_id": "29",
+            "type": "Content",
+            "display": true,
+            "page_title": "Contact a healthcare provider in the long-term care facility where #user_profile# live",
+            "question": "",
+            "resolution_state": "?",
+            "buttons_across": "0",
+            "content": "<p><span style=\"background-color: initial;\">Living in a long-term care facility or nursing home may put one at a higher risk for severe illness. Tell a caregiver at the facility that <span style=\u0027color: rgb(0, 0, 0); font-family: \"Open Sans\"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\u0027>#user_profile#<\/span> are sick and need to see a medical provider as soon as possible.<\/span><\/p><p>Help protect others from getting sick:<\/p><ul><li>Stay in the room except to get medical care<\/li><li>Cover coughs and sneezes<\/li><li>Clean hands often<\/li><\/ul>",
+            "buttons": [],
+            "formfields": []
+        }
+    }
+}
