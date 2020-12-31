@@ -1,32 +1,29 @@
 import {useState, useEffect} from 'react';
 import config from './config.json';
 import './App.css';
-import localFeed from './survey.json';
+//import localFeed from './survey.json';
 import MessagePanel from './components/messagePanel';
 import {Questionaire, CheckboxForm, DropdownForm } from './components';
 
 function App() {
 
-     const [localSurvey, setLocalSurvey] = useState(localFeed);
-    //  const [currentTargetNode , setTargetNode] = useState(() =>
-    //  {return localSurvey.root_node_id });
-
-    const [currentTargetNode , setTargetNode] = useState(1);
+     const [localSurvey, setLocalSurvey] = useState({});
+     const [currentTargetNode , setTargetNode] = useState(1);
 
      let resultAnswers,resultAnswer = {};
 
-  // useEffect (() => {
+  useEffect (() => {
     
-  //   fetch(config.apiEndpoint)
-  //   .then(response => response.json())
-  //   .then(json => setLocalSurvey(json))
-  // }, []);
+    fetch(config.apiEndpoint)
+    .then(response => response.json())
+    .then(json => setLocalSurvey(json))
+  }, []);
 
   //console.log('localFeed: ', localFeed.nodes[1]);
   //setLocalSurvey(localFeed);
 
   const viewState = localSurvey.nodes[currentTargetNode];
-    
+    console.log(viewState);
  document.title = localSurvey.name;
  var link = document.createElement('link');
  link.rel = 'stylesheet';
@@ -62,21 +59,13 @@ const handleAnswer = (answer) => {
         
       {(viewState.type === "Content"  && !viewState.formfields.length) ?
         <Questionaire handleAnswer={handleAnswer} data={viewState}/> : 
-
-      // (viewState.type === "Content"  && viewState.formfields[1].type === "checkbox") ?
-      //   <div> CheckboxForm
-      //   <CheckboxForm handleAnswer={handleAnswer} data={viewState}/>
-      //   </div>
-      //    :
-
-      // (viewState.type === "Content"  && viewState.formfields[1].type === "select") ?
-      // <div> DropdownForm
-      //   <DropdownForm handleAnswer={handleAnswer} data={viewState}/>
-      //   </div>
-      //    :
-         <div> MessagePanel
-        <MessagePanel handleAnswer={handleAnswer} data={viewState}/>
-        </div>
+        (viewState.type === "Content"  && viewState.formfields[0].type === "checkbox") ?
+         <CheckboxForm handleAnswer={handleAnswer} data={viewState}/>
+         :
+        (viewState.type === "Content"  && viewState.formfields[0].type === "select") ?
+         <DropdownForm handleAnswer={handleAnswer} data={viewState}/>
+         :
+         <MessagePanel handleAnswer={handleAnswer} data={viewState}/>
       } 
        
     </div>
