@@ -1,10 +1,10 @@
 import React from 'react';
 
-function MessagePanel ({data , handleAnswer}) {
+function MessagePanel ({handleAnswer}) {
    return (
-    <div className={`button-container ${!data.buttons_across ? 'button-col' : ''}`}>
+    <div className="button-container">
         <button className="btn btn-primary btn-lr btn-width"
-            onClick={() => handleAnswer('retake')}>
+            onClick={() => handleAnswer('finish')}>
             Retake the Test
         </button>
     </div>

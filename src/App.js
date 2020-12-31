@@ -1,22 +1,29 @@
 import {useState, useEffect} from 'react';
 import config from './config.json';
 import './App.css';
+import localFeed from './survey.json';
 import MessagePanel from './components/messagePanel';
 import {Questionaire, CheckboxForm, DropdownForm } from './components';
 
 function App() {
 
-     const [localSurvey, setLocalSurvey] = useState({});
-     const [currentTargetNode , setTargetNode] = useState(() =>
-     {return localSurvey.root_node_id });
+     const [localSurvey, setLocalSurvey] = useState(localFeed);
+    //  const [currentTargetNode , setTargetNode] = useState(() =>
+    //  {return localSurvey.root_node_id });
 
-  useEffect (() => {
+    const [currentTargetNode , setTargetNode] = useState(1);
+
+     let resultAnswers,resultAnswer = {};
+
+  // useEffect (() => {
     
-    fetch(config.apiEndpoint)
-    .then(response => response.json())
-    .then(json => setLocalSurvey(json))
-  }, []);
+  //   fetch(config.apiEndpoint)
+  //   .then(response => response.json())
+  //   .then(json => setLocalSurvey(json))
+  // }, []);
 
+  //console.log('localFeed: ', localFeed.nodes[1]);
+  //setLocalSurvey(localFeed);
 
   const viewState = localSurvey.nodes[currentTargetNode];
     
@@ -33,17 +40,18 @@ function App() {
 
 
 const handleAnswer = (answer) => {
- //check the answer
 
- // redirect to another target_node_id
- // add answer to new state .json file for result.
-   console.log(answer);
+  if(answer.value === 'finish') {
+    console.log('final Results: ',resultAnswers);
+    answer.targetNodeId = 1;
+  } else {
+    resultAnswer[viewState.variable] = answer.clickValue;
+    resultAnswers = {...resultAnswers, resultAnswer};
+  }
    setTargetNode(answer.targetNodeId);
+      
 };
- 
    return(
-
-    
                   
     <div className="App container">
               <div className="card">          
@@ -55,15 +63,20 @@ const handleAnswer = (answer) => {
       {(viewState.type === "Content"  && !viewState.formfields.length) ?
         <Questionaire handleAnswer={handleAnswer} data={viewState}/> : 
 
-      (viewState.type === "Content"  && viewState.formfields === "checkbox") ?
+      // (viewState.type === "Content"  && viewState.formfields[1].type === "checkbox") ?
+      //   <div> CheckboxForm
+      //   <CheckboxForm handleAnswer={handleAnswer} data={viewState}/>
+      //   </div>
+      //    :
 
-        <CheckboxForm handleAnswer={handleAnswer} data={viewState}/> :
-
-      (viewState.type === "Content"  && viewState.formfields === "select") ?
-
-        <DropdownForm handleAnswer={handleAnswer} data={viewState}/> :
-
+      // (viewState.type === "Content"  && viewState.formfields[1].type === "select") ?
+      // <div> DropdownForm
+      //   <DropdownForm handleAnswer={handleAnswer} data={viewState}/>
+      //   </div>
+      //    :
+         <div> MessagePanel
         <MessagePanel handleAnswer={handleAnswer} data={viewState}/>
+        </div>
       } 
        
     </div>
